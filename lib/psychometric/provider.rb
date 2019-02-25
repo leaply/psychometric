@@ -16,8 +16,9 @@ module Psychometric
     end
 
     def self.assessment(identity)
-      raise Assessment::IdentityError unless identity.keys.to_set == @@assessment_identifiers.to_set
-      Assessment.new self, identity
+      symbolized_identity = identity.inject({}) { |memo, (k,v)| memo[k.to_sym] = v; memo } # symbolize_keys
+      raise Assessment::IdentityError unless symbolized_identity.keys.to_set == @@assessment_identifiers.to_set
+      Assessment.new self, symbolized_identity
     end
 
     protected
