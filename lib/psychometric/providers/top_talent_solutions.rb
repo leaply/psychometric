@@ -75,6 +75,9 @@ module Psychometric
                 title: item['Title|title|Raw|Raw score'],
               )
 
+              # NOTE: This may need to be configurable in the future
+              result.aggregate = item['OverAll'].try(:to_f)
+
               values = item.reject do |key, _v|
                 [
                   'participantGUID',

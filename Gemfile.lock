@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    psychometric (0.1.1)
+    psychometric (0.1.2)
       httparty (~> 0.16.4)
 
 GEM
