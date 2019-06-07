@@ -53,7 +53,7 @@ module Psychometric
       def results(assessment)
         raise Psychometric::Provider::AuthenticationError.new('You need to authenticate first') unless authenticated?
 
-        response = self.class.post '/getDataExtract', headers: { 'Authorization' => "Bearer #{@token}", 'Accept' => 'application/json' }, body: {
+        response = self.class.post '/getDataExtract', timeout: 180, headers: { 'Authorization' => "Bearer #{@token}", 'Accept' => 'application/json' }, body: {
           'projectId' => assessment.identity[:project_id],
           'modelId' => assessment.identity[:model_id],
           'locale' => 'en_ZA',
