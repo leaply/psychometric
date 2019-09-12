@@ -88,6 +88,8 @@ module Psychometric
                   'Gender|gender|Raw|Raw score',
                   'Title|title|Raw|Raw score',
                   'OverAll',
+                  'Highest Qualification',
+                  'Cultural Background',
                 ].include? key
               end
 
