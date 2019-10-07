@@ -72,7 +72,7 @@ module Psychometric
                            'GH'
                          else
                            'ZA'
-                         end
+                         end,
                 identity: item['participantId'],
                 email: item['email'],
                 name: "#{item['name']} #{item['surname']}",
