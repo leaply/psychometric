@@ -67,7 +67,12 @@ module Psychometric
           response['data'].map do |item|
             Psychometric::Result.new.tap do |result|
               result.subject = Psychometric::Subject.new(
-                country: 'ZA',
+                country: case item['participantId']
+                         when /^G\d+/
+                           'GH'
+                         else
+                           'ZA'
+                         end
                 identity: item['participantId'],
                 email: item['email'],
                 name: "#{item['name']} #{item['surname']}",
