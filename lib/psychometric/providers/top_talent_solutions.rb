@@ -68,7 +68,7 @@ module Psychometric
             Psychometric::Result.new.tap do |result|
               result.subject = Psychometric::Subject.new(
                 country: case item['participantId']
-                         when /^G\d+/
+                         when /^G\d+/, /\d{10}/
                            'GH'
                          else
                            'ZA'
@@ -93,8 +93,8 @@ module Psychometric
                   'Gender|gender|Raw|Raw score',
                   'Title|title|Raw|Raw score',
                   'OverAll',
-                  'Highest Qualification',
-                  'Cultural Background',
+                  'Highest Qualification|highestQualification|Raw|Raw score',
+                  'Cultural Background|culturalBackground|Raw|Raw score',
                 ].include? key
               end
 
