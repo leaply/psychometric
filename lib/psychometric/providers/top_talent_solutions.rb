@@ -68,11 +68,15 @@ module Psychometric
             Psychometric::Result.new.tap do |result|
               result.subject = Psychometric::Subject.new(
                 country: case item['participantId']
-                         when /^G\d+/, /\d{10}/
-                           'GH'
-                         else
-                           'ZA'
-                         end,
+                   when /^\d{13}$/
+                     'ZA'
+                   when /^G\d+/, /^\d{10}$/
+                     'GH'
+                   when /^\d{9}$/
+                     'BW'
+                   else
+                     'XX'
+                   end,
                 identity: item['participantId'],
                 email: item['email'],
                 name: "#{item['name']} #{item['surname']}",
